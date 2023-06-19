@@ -1,6 +1,7 @@
 import { DateTime } from 'luxon'
-import { column } from '@ioc:Adonis/Lucid/Orm'
+import { HasMany, column, hasMany } from '@ioc:Adonis/Lucid/Orm'
 import AppBaseModel from './AppBaseModel'
+import Partner from './Partner'
 
 export default class Country extends AppBaseModel {
   public static selfAssignPrimaryKey = true
@@ -11,9 +12,12 @@ export default class Country extends AppBaseModel {
   @column()
   public name: string
 
-  @column.dateTime({ autoCreate: true })
+  @hasMany(() => Partner)
+  public partners: HasMany<typeof Partner>
+
+  @column.dateTime({ autoCreate: true, serializeAs: null })
   public createdAt: DateTime
 
-  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  @column.dateTime({ autoCreate: true, autoUpdate: true, serializeAs: null })
   public updatedAt: DateTime
 }
