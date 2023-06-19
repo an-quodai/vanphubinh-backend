@@ -1,10 +1,14 @@
 import { DateTime } from 'luxon'
-import { BaseModel, BelongsTo, belongsTo, column } from '@ioc:Adonis/Lucid/Orm'
+import { BelongsTo, belongsTo, column } from '@ioc:Adonis/Lucid/Orm'
 import Uom from './Uom'
 import ItemType from './ItemType'
 import Category from './Category'
+import ItemFilter from './Filters/ItemFilter'
+import AppBaseModel from './AppBaseModel'
 
-export default class Item extends BaseModel {
+export default class Item extends AppBaseModel {
+  public static $filter = () => ItemFilter
+
   @column({ isPrimary: true })
   public id: number
 
