@@ -6,10 +6,9 @@ export default class ItemsController {
     const { page, perPage, ...input } = request.qs()
     const items = await Item.query()
       .apply((scopes) => scopes.filtration(input))
-      .select('id', 'name', 'price', 'cost', 'type')
-      .preload('uom', (query) => query.select('id', 'name'))
-      .preload('purchaseUom', (query) => query.select('id', 'name'))
-      .preload('category', (query) => query.select('id', 'name'))
+      .preload('uom')
+      .preload('purchaseUom')
+      .preload('category')
       .paginate(page, perPage)
 
     return items
