@@ -8,13 +8,13 @@ export default class ProductionOrder extends BaseModel {
   @column({ isPrimary: true })
   public id: number
 
-  @column()
+  @column({ serializeAs: 'saleOrderId' })
   public saleOrderId: number
 
-  @column()
+  @column({ serializeAs: 'itemId' })
   public itemId: number
 
-  @column()
+  @column({ serializeAs: 'saleOrderLineId' })
   public saleOrderLineId: number
 
   @column()
@@ -23,7 +23,7 @@ export default class ProductionOrder extends BaseModel {
   @column()
   public deadline: Date
 
-  @column()
+  @column({ serializeAs: 'finishedQuantity' })
   public finishedQuantity: number = 0
 
   @column()
@@ -41,6 +41,7 @@ export default class ProductionOrder extends BaseModel {
   @column.dateTime({
     autoCreate: true,
     serialize: (value: DateTime) => value.setLocale('vi').toFormat('dd/MM/yyyy'),
+    serializeAs: 'createdAt',
   })
   public createdAt: DateTime
 

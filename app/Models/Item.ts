@@ -13,12 +13,15 @@ export default class Item extends AppBaseModel {
   public id: number
 
   @column()
+  public name: string
+
+  @column({ serializeAs: 'uomId' })
   public uomId: number
 
   @belongsTo(() => Uom)
   public uom: BelongsTo<typeof Uom>
 
-  @column()
+  @column({ serializeAs: 'purchaseUomId' })
   public purchaseUomId: number
 
   @belongsTo(() => Uom)
@@ -41,6 +44,7 @@ export default class Item extends AppBaseModel {
 
   @column()
   public type: ItemType
+
   @column.dateTime({ autoCreate: true, serializeAs: null })
   public createdAt: DateTime
 
