@@ -3,6 +3,7 @@ import { BelongsTo, HasMany, belongsTo, column, hasMany } from '@ioc:Adonis/Luci
 import Partner from './Partner'
 import AppBaseModel from './AppBaseModel'
 import SaleOrderLine from './SaleOrderLine'
+import ProductionOrder from './ProductionOrder'
 
 export default class SaleOrder extends AppBaseModel {
   @column({ isPrimary: true })
@@ -24,6 +25,9 @@ export default class SaleOrder extends AppBaseModel {
 
   @hasMany(() => SaleOrderLine)
   public saleOrderlines: HasMany<typeof SaleOrderLine>
+
+  @hasMany(() => ProductionOrder)
+  public productionOrders: HasMany<typeof ProductionOrder>
 
   @column.dateTime({
     autoCreate: true,

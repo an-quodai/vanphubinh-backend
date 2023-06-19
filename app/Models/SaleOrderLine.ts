@@ -1,8 +1,17 @@
 import { DateTime } from 'luxon'
-import { BelongsTo, belongsTo, column, computed } from '@ioc:Adonis/Lucid/Orm'
+import {
+  BelongsTo,
+  HasMany,
+  belongsTo,
+  column,
+  computed,
+  hasMany,
+  hasOne,
+} from '@ioc:Adonis/Lucid/Orm'
 import AppBaseModel from './AppBaseModel'
 import Item from './Item'
 import SaleOrder from './SaleOrder'
+import ProductionOrder from './ProductionOrder'
 
 export default class SaleOrderLine extends AppBaseModel {
   @column({ isPrimary: true })
@@ -31,9 +40,14 @@ export default class SaleOrderLine extends AppBaseModel {
   @belongsTo(() => SaleOrder)
   public saleOrder: BelongsTo<typeof SaleOrder>
 
-  @column.dateTime({ autoCreate: true })
+  @hasMany(() => ProductionOrder, {
+    foreignKey: 'saleOrderLineId',
+  })
+  public productionOrders: HasMany<typeof ProductionOrder>
+
+  @column.dateTime({ autoCreate: true, serializeAs: null })
   public createdAt: DateTime
 
-  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  @column.dateTime({ autoCreate: true, autoUpdate: true, serializeAs: null })
   public updatedAt: DateTime
 }
