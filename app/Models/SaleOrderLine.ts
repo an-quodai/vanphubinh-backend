@@ -17,10 +17,10 @@ export default class SaleOrderLine extends AppBaseModel {
   @column({ isPrimary: true })
   public id: number
 
-  @column({ serializeAs: 'saleOrderId' })
+  @column()
   public saleOrderId: number
 
-  @column({ serializeAs: 'itemId' })
+  @column()
   public itemId: number
 
   @belongsTo(() => Item)
@@ -29,7 +29,7 @@ export default class SaleOrderLine extends AppBaseModel {
   @column()
   public quantity: number = 0
 
-  @column({ serializeAs: 'unitPrice' })
+  @column()
   public unitPrice: number = 0
 
   @computed()
