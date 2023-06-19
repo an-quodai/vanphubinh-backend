@@ -29,7 +29,7 @@ export default class Item extends BaseModel {
   @column()
   public properties: object
 
-  @column()
+  @column({ serializeAs: null })
   public categoryId: number
 
   @belongsTo(() => Category)
@@ -37,9 +37,9 @@ export default class Item extends BaseModel {
 
   @column()
   public type: ItemType
-  @column.dateTime({ autoCreate: true })
+  @column.dateTime({ autoCreate: true, serializeAs: null })
   public createdAt: DateTime
 
-  @column.dateTime({ autoCreate: true, autoUpdate: true })
+  @column.dateTime({ autoCreate: true, autoUpdate: true, serializeAs: null })
   public updatedAt: DateTime
 }
