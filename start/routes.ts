@@ -27,6 +27,10 @@ Route.get('/', () => {
 })
 
 Route.group(() => {
+  Route.resource('items', 'ItemsController').apiOnly()
+}).prefix('/api')
+
+Route.group(() => {
   Route.post('/register', 'AuthController.register')
   Route.post('/login', 'AuthController.login')
   Route.get('/logout', 'AuthController.logout')
