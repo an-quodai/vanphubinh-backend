@@ -24,7 +24,7 @@ export default class SaleOrder extends AppBaseModel {
   public status: string
 
   @hasMany(() => SaleOrderLine)
-  public saleOrderlines: HasMany<typeof SaleOrderLine>
+  public saleOrderLines: HasMany<typeof SaleOrderLine>
 
   @hasMany(() => ProductionOrder)
   public productionOrders: HasMany<typeof ProductionOrder>
