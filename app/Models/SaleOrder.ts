@@ -9,7 +9,7 @@ export default class SaleOrder extends AppBaseModel {
   @column({ isPrimary: true })
   public id: number
 
-  @column()
+  @column({ serializeAs: 'customerId' })
   public customerId: number
 
   @belongsTo(() => Partner, {
@@ -32,6 +32,7 @@ export default class SaleOrder extends AppBaseModel {
   @column.dateTime({
     autoCreate: true,
     serialize: (value: DateTime) => value.setLocale('vi').toFormat('dd/MM/yyyy'),
+    serializeAs: 'createdAt',
   })
   public createdAt: DateTime
 
@@ -39,6 +40,7 @@ export default class SaleOrder extends AppBaseModel {
     autoCreate: true,
     autoUpdate: true,
     serialize: (value: DateTime) => value.setLocale('vi').toFormat('dd/MM/yyyy'),
+    serializeAs: 'updatedAt',
   })
   public updatedAt: DateTime
 }
