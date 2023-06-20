@@ -37,6 +37,13 @@ Route.group(() => {
   Route.group(() => {
     Route.get('/', 'PartnersController.index')
   }).prefix('/partners')
+  Route.group(() => {
+    Route.get('/', 'SaleOrdersController.index')
+    // Route.get('/:id', 'SaleOrdersController.show')
+    Route.post('/', 'SaleOrdersController.store')
+    // Route.put('/:id', 'SaleOrdersController.update')
+    // Route.delete('/:id', 'SaleOrdersController.destroy')
+  }).prefix('/sale-orders')
 }).prefix('/api')
 
 Route.group(() => {

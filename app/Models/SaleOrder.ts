@@ -4,8 +4,11 @@ import Partner from './Partner'
 import AppBaseModel from './AppBaseModel'
 import SaleOrderLine from './SaleOrderLine'
 import ProductionOrder from './ProductionOrder'
+import SaleOrderFilter from './Filters/SaleOrderFilter'
 
 export default class SaleOrder extends AppBaseModel {
+  public static $filter = () => SaleOrderFilter
+
   @column({ isPrimary: true })
   public id: number
 

@@ -39,7 +39,6 @@ export default class SaleOrdersController {
           await saleOrder
             .related('saleOrderLines')
             .createMany(payload.saleOrderLines, { client: trx })
-          // })
           return saleOrder
         })
     )
