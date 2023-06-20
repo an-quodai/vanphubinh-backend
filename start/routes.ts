@@ -27,7 +27,16 @@ Route.get('/', () => {
 })
 
 Route.group(() => {
-  Route.resource('items', 'ItemsController').apiOnly()
+  Route.group(() => {
+    Route.get('/', 'ItemsController.index')
+    // Route.get('/:id', 'ItemsController.show')
+    // Route.post('/', 'ItemsController.store')
+    // Route.put('/:id', 'ItemsController.update')
+    // Route.delete('/:id', 'ItemsController.destroy')
+  }).prefix('/items')
+  Route.group(() => {
+    Route.get('/', 'PartnersController.index')
+  }).prefix('/partners')
 }).prefix('/api')
 
 Route.group(() => {

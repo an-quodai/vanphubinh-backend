@@ -2,8 +2,11 @@ import { DateTime } from 'luxon'
 import { BelongsTo, belongsTo, column } from '@ioc:Adonis/Lucid/Orm'
 import Country from './Country'
 import AppBaseModel from './AppBaseModel'
+import PartnerFilter from './Filters/PartnerFilter'
 
 export default class Partner extends AppBaseModel {
+  public static $filter = () => PartnerFilter
+
   @column({ isPrimary: true })
   public id: number
 
