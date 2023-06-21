@@ -29,7 +29,7 @@ export default class extends BaseSchema {
   }
 
   public async down() {
-    this.schema.raw('DROP TYPE IF EXISTS item_type')
     this.schema.dropTable(this.tableName)
+    this.schema.raw('DROP TYPE IF EXISTS item_type')
   }
 }

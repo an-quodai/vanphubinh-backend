@@ -1,7 +1,6 @@
 import type { HttpContextContract } from '@ioc:Adonis/Core/HttpContext'
 import Database from '@ioc:Adonis/Lucid/Database'
 import SaleOrder from 'App/Models/SaleOrder'
-import { schema } from '@ioc:Adonis/Core/Validator'
 import CreateSaleOrderValidator from 'App/Validators/CreateSaleOrderValidator'
 
 export default class SaleOrdersController {
