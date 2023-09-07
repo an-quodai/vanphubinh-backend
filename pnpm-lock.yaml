@@ -1,5 +1,9 @@
 lockfileVersion: '6.0'
 
+settings:
+  autoInstallPeers: true
+  excludeLinksFromLockfile: false
+
 dependencies:
   '@adonisjs/auth':
     specifier: ^8.2.3
@@ -82,8 +86,8 @@ devDependencies:
     specifier: ~4.9
     version: 4.9.3
   youch:
-    specifier: ^3.2.2
-    version: 3.2.2
+    specifier: ^3.3.1
+    version: 3.3.1
   youch-terminal:
     specifier: ^2.2.0
     version: 2.2.0
@@ -601,7 +605,7 @@ packages:
     dependencies:
       '@poppinss/cliui': 3.0.5
       jest-diff: 29.5.0
-      youch: 3.2.3
+      youch: 3.3.1
       youch-terminal: 2.2.0
     dev: true
 
@@ -5460,16 +5464,8 @@ packages:
       wordwrap: 1.0.0
     dev: true
 
-  /youch@3.2.2:
-    resolution: {integrity: sha512-+xhTK8sY9qV3nLbWVaOUFZPdlQ3wrMKiu3dKqKkAkLaYzzkYmpWY+v+eQIAfbPu7TZhS1G5FhEV++sl8fhuT4w==}
-    dependencies:
-      cookie: 0.5.0
-      mustache: 4.2.0
-      stacktracey: 2.1.8
-    dev: true
-
-  /youch@3.2.3:
-    resolution: {integrity: sha512-ZBcWz/uzZaQVdCvfV4uk616Bbpf2ee+F/AvuKDR5EwX/Y4v06xWdtMluqTD7+KlZdM93lLm9gMZYo0sKBS0pgw==}
+  /youch@3.3.1:
+    resolution: {integrity: sha512-Rg9ioi+AkKyje2Hk4qILSVvayaFW98KTsOJ4aIkjDf97LZX5WJVIHZmFLnM4ThcVofHo/fbbwtYajfBPHFOVtg==}
     dependencies:
       cookie: 0.5.0
       mustache: 4.2.0
